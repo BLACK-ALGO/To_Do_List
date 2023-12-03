@@ -183,7 +183,7 @@ function displayCompletesTask(): array{
     $conn = $GLOBALS['CONNECTION'];
     
    // prepare sql query to select all task
-   $sql ="SELECT * FROM `task` WHERE `status`=1 ORDER BY created_at DESC";
+   $sql ="SELECT * FROM `task` WHERE `status`=1 ORDER BY updated_at DESC";
    
    // query execution
    $result =$conn->query($sql);
