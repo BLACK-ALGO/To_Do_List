@@ -1,0 +1,335 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+
+}
+
+body{
+    background-color: aliceblue;
+   
+}
+
+
+.add_task{
+    width: 110px;
+    height: 35px;
+    margin-top: 1%;
+    background: linear-gradient(to right,#ff105f,rgb(1, 17, 75));
+    border-radius: 5px;
+    border: 0;
+    outline: none;
+    color: #fff;
+    cursor: pointer;
+    font-weight: bold;
+    margin-left: 5%;
+    font-size: medium;
+}
+
+.add_task:hover{
+    background: #ff105f;
+    color: black;
+}
+
+
+
+h2{
+    text-align: center;
+    font-size: 18px;
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    color: rgb(1, 17, 75);
+    padding: 30px 0;
+}
+
+/* Table Styles */
+
+.table-wrapper{
+    margin: 10px 70px 70px;
+    box-shadow: 0px 35px 50px rgba( 0, 0, 0, 0.2 );
+}
+
+.fl-table {
+    border-radius: 5px;
+    font-size: 12px;
+    font-weight: normal;
+    border: none;
+    border-collapse: collapse;
+    width: 100%;
+    max-width: 100%;
+    white-space: nowrap;
+    background-color: white;
+}
+
+.fl-table td, .fl-table th {
+    text-align: center;
+    padding: 8px;
+}
+
+.fl-table td {
+    border-right: 1px solid #f8f8f8;
+    font-size: 12px;
+}
+
+.fl-table thead th {
+    color: #ffffff;
+    background: #4FC3A1;
+}
+
+
+.fl-table thead th:nth-child(odd) {
+    color: #ffffff;
+    background: #324960;
+}
+
+.fl-table tr:nth-child(even) {
+    background: #F8F8F8;
+}
+
+/* Responsive */
+
+@media (max-width: 767px) {
+    .fl-table {
+        display: block;
+        width: 100%;
+    }
+    .table-wrapper:before{
+        content: "Scroll horizontally >";
+        display: block;
+        text-align: right;
+        font-size: 11px;
+        color: white;
+        padding: 0 0 10px;
+    }
+    .fl-table thead, .fl-table tbody, .fl-table thead th {
+        display: block;
+    }
+    .fl-table thead th:last-child{
+        border-bottom: none;
+    }
+    .fl-table thead {
+        float: left;
+    }
+    .fl-table tbody {
+        width: auto;
+        position: relative;
+        overflow-x: auto;
+    }
+    .fl-table td, .fl-table th {
+        padding: 20px .625em .625em .625em;
+        height: 60px;
+        vertical-align: middle;
+        box-sizing: border-box;
+        overflow-x: hidden;
+        overflow-y: auto;
+        width: 120px;
+        font-size: 13px;
+        text-overflow: ellipsis;
+    }
+    .fl-table thead th {
+        text-align: left;
+        border-bottom: 1px solid #f7f7f9;
+    }
+    .fl-table tbody tr {
+        display: table-cell;
+    }
+    .fl-table tbody tr:nth-child(odd) {
+        background: none;
+    }
+    .fl-table tr:nth-child(even) {
+        background: transparent;
+    }
+    .fl-table tr td:nth-child(odd) {
+        background: #F8F8F8;
+        border-right: 1px solid #E6E4E4;
+    }
+    .fl-table tr td:nth-child(even) {
+        border-right: 1px solid #E6E4E4;
+    }
+    .fl-table tbody td {
+        display: block;
+        text-align: center;
+    }
+}
+
+.scrol-div-Instance{
+    /* width: 100px; */
+    height: 350px;
+    overflow: hidden;
+    overflow-y: scroll;
+   
+}
+
+.popup{
+    width: 400px;
+    background: #fff;
+    border-radius: 6px;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%,-50%) scale(0.1);
+    padding: 0 30px 30px;
+    color: #333;
+    text-align: center;
+    visibility: hidden;
+    transition: transform 0.4s, scale 0.4s;
+}
+
+.open_popup{
+    visibility: visible;
+    top: 50%;
+    transform: translate(-50%, -50%) scale(1);
+}
+
+.popup h2{
+    font-size: 30px;
+    font-weight: 500;
+    margin: 30px 0 10px;
+}
+
+.popup .save_btn{
+    margin-left: 2%;
+    width: 40%;
+    margin-top: 50px;
+    padding: 10px 0;
+    background-color: #6fd649;
+    color: #fff;
+    outline: none;
+    font-size: 18px;
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: 0 5px 5px rgba( 0, 0, 0, 0.2 );
+}
+
+.btn_div{
+    display: flex;
+    justify-content: center;
+}
+
+.popup .close_btn{
+
+    width: 40%;
+    margin-top: 50px;
+    padding: 10px 0;
+    background-color: rgb(226, 59, 25);
+    color: #fff;
+    outline: none;
+    font-size: 18px;
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: 0 5px 5px rgba( 0, 0, 0, 0.2 );
+}
+
+label{
+    font-weight: bold;
+    font-size: large;
+    display: block;
+    margin-bottom: 10px;
+    float: left;
+}
+
+.input_class{
+    margin-top: 1%;
+}
+input, select{
+    width: 100%;
+    padding: 2%;
+}
+
+label,
+textarea {
+  font-size: 0.8rem;
+  letter-spacing: 1px;
+}
+
+textarea {
+    padding: 10px;
+    max-width: 100%;
+    border-radius: 5px;
+    
+    
+  }
+.div_action{
+    display: flex;
+    cursor: pointer;
+    justify-content: space-evenly;
+  }
+
+  .update ,.delete{
+    padding:  2%;
+    font-size: 15PX;
+
+  }
+  .update >a{
+    text-decoration: none;
+    color: white;
+  }
+
+/* update styling */
+.update_form{
+    width: 400px;
+    background: #fff;
+    border-radius: 6px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%) ;
+    padding: 0 30px 30px;
+    color: #333;
+    text-align: center;
+}
+.update_form .save_btn{
+    margin-left: 2%;
+    width: 40%;
+    margin-top: 50px;
+    padding: 10px 0;
+    background-color: #6fd649;
+    color: #fff;
+    outline: none;
+    font-size: 18px;
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: 0 5px 5px rgba( 0, 0, 0, 0.2 );
+}
+.update{
+
+    width: 20%;
+    margin-top: 50px;
+    padding: 10px 0;
+    background-color: #6fd649;
+    color: #fff;
+    outline: none;
+    font-size: 18px;
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: 0 5px 5px rgba( 0, 0, 0, 0.2 );
+}
+.back_view{
+    width: 20%;
+    margin-top: 50px;
+    padding: 10px 0;
+    background-color: rgb(226, 59, 25);
+    color: #fff;
+    outline: none;
+    font-size: 18px;
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: 0 5px 5px rgba( 0, 0, 0, 0.2 );
+}
+.back_view >a, .delete >a{
+    text-decoration: none;
+    color: white;
+  }
+.delete{
+    width: 20%;
+    margin-top: 50px;
+    padding: 10px 0;
+    background-color: rgb(226, 59, 25);
+    color: #fff;
+    outline: none;
+    font-size: 18px;
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: 0 5px 5px rgba( 0, 0, 0, 0.2 );
+
+}
