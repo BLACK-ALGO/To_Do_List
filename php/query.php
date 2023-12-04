@@ -28,15 +28,17 @@ if(empty($_GET['mnu']) || $_GET['mnu'] == 'add'){
 
 // calling of the update function
 if(isset($_GET['mnu']) and $_GET['mnu'] == 'update'){
-    if ((trim(isset($_POST['taskName'])) and trim(isset($_POST['taskDescription'])) and trim(isset($_POST['taskStatus'])))) {
-
+    if ((trim(isset($_POST['taskName'])) and trim(isset($_POST['taskDescription'])) and isset($_POST['taskStatus']))) {
+        
         // getting the value from the form
         $task_Name =trim($_POST['taskName']);
         $task_Description =trim($_POST['taskDescription']);
-        $task_status = trim($_POST['taskStatus']);
+        $task_status = $_POST['taskStatus'];
          $task_Id = (int)$_SESSION['task_id'];
         // Call the function to update data
+        echo 'status is '.$task_status;
         updateTask($task_Name, $task_Description, $task_Id, $task_status);
+   
 
     }
     
@@ -84,8 +86,9 @@ function addTask($task_Name, $task_Description) {
 
 // function to UPDATE data into the database
 function updateTask($task_Name, $task_Description, $id, $status) {
-        // Prepare SQL query
-        global $conn;
+        // creating connection
+        $conn = $GLOBALS['CONNECTION'];
+        
 
         // updating only the title field 
         if(!empty($task_Name)){
@@ -119,7 +122,8 @@ function updateTask($task_Name, $task_Description, $id, $status) {
         }
 
         // updating only the status field
-        if(!empty($status)){
+        if(!empty($status) || $status == 0){
+ 
             $sql = "UPDATE task SET  status=?, updated_at=NOW() WHERE id = ?";
                     // Prepare and bind parameters
             $stmt = $conn->prepare($sql);
