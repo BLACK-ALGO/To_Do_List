@@ -36,7 +36,7 @@ if(isset($_GET['mnu']) and $_GET['mnu'] == 'update'){
         $task_status = $_POST['taskStatus'];
          $task_Id = (int)$_SESSION['task_id'];
         // Call the function to update data
-        echo 'status is '.$task_status;
+        
         updateTask($task_Name, $task_Description, $task_Id, $task_status);
    
 

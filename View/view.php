@@ -25,19 +25,18 @@ require 'php/query.php';
             <div class="popup" id="popup">
                 <h2>ADD NEW TASK</h2>
                 <!-- form to add a new task -->
-                <form action=".\php\query.php?mnu=add" method="post">
+                <form action=".\php\query.php?mnu=add" method="post" >
                         <div class="input_class">
                             <label for="taskName">Task Name</label>
-                            <input type="text" name="taskName" id="" placeholder="Buy a new computer" required>
+                            <input  type="text" name="taskName" id="taskName" placeholder="Buy a new computer" required>
                         </div>
                         <div class="input_class">
                             <label for="taskName">Task Descrition</label>                       
-                            <textarea id="taskDescription" name="taskDescription" rows="5" cols="60"  required>
-                            </textarea>
+                            <textarea  id="taskDescription" name="taskDescription" rows="5" cols="60" required></textarea>
                         </div>
                         <div class="btn_div">                            
                             <div class="close_btn" onclick="closePopUp()">Close</div>
-                            <button class="save_btn" type="submit">Save</button>
+                            <button class="save_btn" type="submit" id="add_task" >Save</button>
                         </div>
                 </form>
             </div>
@@ -137,15 +136,21 @@ require 'php/query.php';
 
     
     <script>
+        // accessing to tags via their id
        let popup = document.getElementById('popup');
+       
 
+    // function to open popup(modal)
        function openPopUp(){
-        console.log("new");
+        
         popup.classList.add("open_popup");
        }
+    // function to close popup(modal)
        function closePopUp(){
         popup.classList.remove("open_popup");
        }
+    
+    
     </script>
 </body>
 </html>
